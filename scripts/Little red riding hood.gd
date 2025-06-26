@@ -12,7 +12,7 @@ var dashing = false
 var dash_cooldown = true
 var is_wall_sliding = false
 var friction = 75
-var start_position = Vector2(-124,572)
+
 
 
 func _physics_process(delta : float):
@@ -39,8 +39,6 @@ func _physics_process(delta : float):
 		$dash_cooldown.start()
 		$dashEffectTimer.start()
 		
-	if position.y > 900:
-		respawn()
 		
 	if (is_on_wall()):
 		is_wall_sliding = true 
@@ -90,16 +88,18 @@ func create_dash_effect():
 	playerCopyNode.queue_free()
 	
 func _on_dash_effect_timer_timeout():
+	
 	create_dash_effect() 
 	$dashEffectTimer.stop()
 
 func _on_dash_timer_timeout():
+	
 	dashing = false 
 	
 func _on_dash_cooldown_timeout():
+	
 	dash_cooldown = true
 	
-func respawn():
-	position = start_position
+
 	
 	
