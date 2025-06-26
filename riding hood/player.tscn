@@ -1,12 +1,11 @@
-[gd_scene load_steps=98 format=3 uid="uid://dcyog5r207f45"]
+[gd_scene load_steps=91 format=3 uid="uid://dcyog5r207f45"]
 
 [ext_resource type="Texture2D" uid="uid://re5fgxqsaswj" path="res://sprites/attack.png" id="1_2r4kx"]
-[ext_resource type="Script" uid="uid://bfkhsj5e0aomi" path="res://riding hood/Little red riding hood.gd" id="1_sm4es"]
+[ext_resource type="Script" uid="uid://bfkhsj5e0aomi" path="res://scripts/Little red riding hood.gd" id="1_sm4es"]
 [ext_resource type="Texture2D" uid="uid://cgq4bfntg1pbj" path="res://sprites/idle.png" id="3_j1f7k"]
 [ext_resource type="Texture2D" uid="uid://blffjvo4k0gxk" path="res://sprites/jump.png" id="4_rbppm"]
 [ext_resource type="Texture2D" uid="uid://lldv6la7orub" path="res://sprites/run.png" id="5_a3tva"]
 [ext_resource type="Texture2D" uid="uid://dqohib4gubttb" path="res://sprites/wall-slide.png" id="6_2r4kx"]
-[ext_resource type="Texture2D" uid="uid://bc4crannnhm2q" path="res://sprites/Red riding hood hearts-Sheet.png" id="7_sm4es"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r3x2d"]
 atlas = ExtResource("1_2r4kx")
@@ -613,45 +612,6 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2r4kx"]
 radius = 6.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r4kx"]
-size = Vector2(20, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b8fid"]
-atlas = ExtResource("7_sm4es")
-region = Rect2(0, 0, 50, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p84pp"]
-atlas = ExtResource("7_sm4es")
-region = Rect2(50, 0, 50, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gp0gm"]
-atlas = ExtResource("7_sm4es")
-region = Rect2(100, 0, 50, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_308v3"]
-atlas = ExtResource("7_sm4es")
-region = Rect2(150, 0, 50, 25)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2r4kx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b8fid")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p84pp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gp0gm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_308v3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="riding hood" type="CharacterBody2D"]
 script = ExtResource("1_sm4es")
 
@@ -677,39 +637,7 @@ wait_time = 0.1
 wait_time = 0.2
 
 [node name="dash_cooldown" type="Timer" parent="."]
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(15, 4)
-shape = SubResource("RectangleShape2D_2r4kx")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-
-[node name="Hearts" type="Control" parent="CanvasLayer/Control/MarginContainer"]
-layout_mode = 2
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Control/MarginContainer/Hearts"]
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_2r4kx")
-autoplay = "default"
-frame = 2
-frame_progress = 0.921555
-centered = false
+wait_time = 1.5
 
 [connection signal="timeout" from="dashEffectTimer" to="." method="_on_dash_effect_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]

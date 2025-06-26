@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3074eyac2vri"]
+
+[ext_resource type="Texture2D" uid="uid://cuk4mx335l0oj" path="res://sprites/Red riding hood enemy.png" id="1_kj3yr"]
+[ext_resource type="Script" uid="uid://bxfduqduso274" path="res://scripts/spiky_boi.gd" id="1_woovi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc474"]
+atlas = ExtResource("1_kj3yr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w06sa"]
+atlas = ExtResource("1_kj3yr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d1gh"]
+atlas = ExtResource("1_kj3yr")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhgrv"]
+atlas = ExtResource("1_kj3yr")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1tfjx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc474")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w06sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d1gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhgrv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_woovi"]
+radius = 6.0
+height = 18.0
+
+[node name="Spiky boi" type="Area2D"]
+script = ExtResource("1_woovi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1tfjx")
+frame = 2
+frame_progress = 0.647419
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_woovi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

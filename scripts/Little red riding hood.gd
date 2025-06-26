@@ -12,7 +12,8 @@ var dashing = false
 var dash_cooldown = true
 var is_wall_sliding = false
 var friction = 75
-		
+var start_position = Vector2(-124,572)
+
 
 func _physics_process(delta : float):
 
@@ -38,6 +39,9 @@ func _physics_process(delta : float):
 		$dash_cooldown.start()
 		$dashEffectTimer.start()
 		
+	if position.y > 900:
+		respawn()
+		
 	if (is_on_wall()):
 		is_wall_sliding = true 
 		velocity.y = friction
@@ -61,9 +65,7 @@ func handle_animation(dir):
 		if is_wall_sliding:
 			AS.play("wall slide")
 		else:
-			AS.play("jump")
-	
-		
+			AS.play("jump")	
 	
 		
 func handle_sprite_flip(dir):
@@ -96,4 +98,8 @@ func _on_dash_timer_timeout():
 	
 func _on_dash_cooldown_timeout():
 	dash_cooldown = true
+	
+func respawn():
+	position = start_position
+	
 	
