@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3074eyac2vri"]
+[gd_scene load_steps=11 format=3 uid="uid://b3074eyac2vri"]
 
 [ext_resource type="Texture2D" uid="uid://cuk4mx335l0oj" path="res://sprites/Red riding hood enemy.png" id="1_kj3yr"]
-[ext_resource type="Script" uid="uid://bxfduqduso274" path="res://scripts/spiky_boi.gd" id="1_woovi"]
+[ext_resource type="Script" uid="uid://bxfduqduso274" path="res://scripts/Spiky boi movement.gd" id="1_woovi"]
+[ext_resource type="Script" uid="uid://b7nnvbmjikgow" path="res://scripts/Spiky boi.gd" id="3_xcvf6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gc474"]
 atlas = ExtResource("1_kj3yr")
@@ -39,11 +40,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_scyyw"]
+radius = 6.0
+height = 16.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_woovi"]
 radius = 6.0
 height = 18.0
 
-[node name="Spiky boi" type="Area2D"]
+[node name="Spiky boi" type="CharacterBody2D"]
 script = ExtResource("1_woovi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -52,8 +57,19 @@ frame = 2
 frame_progress = 0.647419
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_scyyw")
+
+[node name="Spiky boi collision" type="Area2D" parent="."]
+script = ExtResource("3_xcvf6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spiky boi collision"]
 position = Vector2(0, 1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_woovi")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 13)
+
+[connection signal="body_entered" from="Spiky boi collision" to="Spiky boi collision" method="_on_body_entered"]

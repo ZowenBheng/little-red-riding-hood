@@ -1,22 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5qkudjcyb4ks"]
+[gd_scene load_steps=5 format=3 uid="uid://c5qkudjcyb4ks"]
 
-[ext_resource type="Texture2D" uid="uid://muxsaa7k03d" path="res://IMG_5455.jpeg" id="1_sehmy"]
-[ext_resource type="Script" uid="uid://c52f7e7eauffr" path="res://UI/respawn_button.gd" id="1_tl7ye"]
-[ext_resource type="Texture2D" uid="uid://djkf38y3tf1h" path="res://sprites/grass.png" id="3_bp426"]
+[ext_resource type="Script" uid="uid://c52f7e7eauffr" path="res://scripts/respawn_button.gd" id="1_tl7ye"]
+[ext_resource type="Texture2D" uid="uid://cl46il7vaycel" path="res://sprites/Respawn.png" id="2_tl7ye"]
+[ext_resource type="Texture2D" uid="uid://rgtbviioydfp" path="res://sprites/Respawn (pressed.png" id="3_aseps"]
+[ext_resource type="Texture2D" uid="uid://b4xaj1klm02d0" path="res://sprites/Ded.png" id="4_443c4"]
 
 [node name="respawn button" type="Node2D"]
 script = ExtResource("1_tl7ye")
 
-[node name="Img5455" type="Sprite2D" parent="."]
-position = Vector2(566, 382)
-scale = Vector2(0.198238, 0.200514)
-texture = ExtResource("1_sehmy")
-
 [node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 295.0
-offset_top = 270.0
-offset_right = 423.0
-offset_bottom = 302.0
-texture_normal = ExtResource("3_bp426")
+offset_left = 367.0
+offset_top = 380.0
+offset_right = 746.0
+offset_bottom = 477.0
+texture_normal = ExtResource("2_tl7ye")
+texture_pressed = ExtResource("3_aseps")
+texture_hover = ExtResource("3_aseps")
+
+[node name="Ded" type="Sprite2D" parent="."]
+position = Vector2(582, 279)
+scale = Vector2(1.33252, 1.33252)
+texture = ExtResource("4_443c4")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

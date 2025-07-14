@@ -99,7 +99,3 @@ func _on_dash_timer_timeout():
 func _on_dash_cooldown_timeout():
 	
 	dash_cooldown = true
-	
-
-	
-	
