@@ -70,6 +70,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_woovi")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, 0)
 target_position = Vector2(0, 13)
 
 [connection signal="body_entered" from="Spiky boi collision" to="Spiky boi collision" method="_on_body_entered"]
