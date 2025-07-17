@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://dcyog5r207f45"]
+[gd_scene load_steps=93 format=3 uid="uid://dcyog5r207f45"]
 
 [ext_resource type="Texture2D" uid="uid://re5fgxqsaswj" path="res://sprites/attack.png" id="1_2r4kx"]
 [ext_resource type="Script" uid="uid://bfkhsj5e0aomi" path="res://scripts/Little red riding hood.gd" id="1_sm4es"]
@@ -609,14 +609,25 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2r4kx"]
-radius = 6.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r4kx"]
+size = Vector2(14, 30)
+
+[sub_resource type="Gradient" id="Gradient_dx6c5"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2r4kx"]
+gradient = SubResource("Gradient_dx6c5")
+width = 236
+height = 236
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
 
 [node name="riding hood" type="CharacterBody2D"]
 script = ExtResource("1_sm4es")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_sh265")
 animation = &"idle"
 autoplay = "idle"
@@ -624,8 +635,8 @@ frame = 10
 frame_progress = 0.0682897
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 3)
-shape = SubResource("CapsuleShape2D_2r4kx")
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_2r4kx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -638,6 +649,11 @@ wait_time = 0.2
 
 [node name="dash_cooldown" type="Timer" parent="."]
 wait_time = 1.5
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.00097, 1)
+energy = 1.54
+texture = SubResource("GradientTexture2D_2r4kx")
 
 [connection signal="timeout" from="dashEffectTimer" to="." method="_on_dash_effect_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
