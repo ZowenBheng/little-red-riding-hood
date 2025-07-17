@@ -617,8 +617,8 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2r4kx"]
 gradient = SubResource("Gradient_2r4kx")
-width = 236
-height = 236
+width = 150
+height = 150
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
@@ -651,8 +651,8 @@ wait_time = 0.2
 wait_time = 1.5
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(1.00097, 1)
-energy = 1.54
+position = Vector2(1.90735e-06, 14)
+scale = Vector2(0.933333, 1)
 texture = SubResource("GradientTexture2D_2r4kx")
 
 [connection signal="timeout" from="dashEffectTimer" to="." method="_on_dash_effect_timer_timeout"]
