@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://doqko73oqydl0"]
+[gd_scene load_steps=29 format=4 uid="uid://doqko73oqydl0"]
 
 [ext_resource type="PackedScene" uid="uid://dcyog5r207f45" path="res://riding hood/player.tscn" id="2_ew5uy"]
 [ext_resource type="Texture2D" uid="uid://1ap17vbqnkot" path="res://sprites/hanging roots.png" id="2_satuh"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c1faji332bojb" path="res://sprites/Water block.png" id="7_0rg8l"]
 [ext_resource type="PackedScene" uid="uid://7qchn4wr50a0" path="res://UI/death_collision.tscn" id="7_maq6b"]
 [ext_resource type="Texture2D" uid="uid://cvyqy0ykhdfcm" path="res://sprites/Cave terrian slopes.png" id="9_5mwf5"]
+[ext_resource type="PackedScene" uid="uid://cksn54i1se1us" path="res://enemys/the_light_(boss).tscn" id="13_upde5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n8wy4"]
 texture = ExtResource("4_6w4ab")
@@ -656,3 +657,6 @@ position = Vector2(826, 2858)
 scale = Vector2(1.3894, 0.405621)
 texture = SubResource("GradientTexture2D_5mwf5")
 texture_scale = 3.7
+
+[node name="The Light (Boss)" parent="." instance=ExtResource("13_upde5")]
+position = Vector2(5804, 2924)
