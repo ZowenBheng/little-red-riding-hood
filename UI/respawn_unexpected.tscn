@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://b580iq3mdurtt"]
+
+[ext_resource type="Script" uid="uid://bsshhprpyue5c" path="res://scripts/respawn_unexpected.gd" id="1_mp1pe"]
+[ext_resource type="Texture2D" uid="uid://bghlaiv2qlqs2" path="res://sprites/Unepected death.png" id="2_ixvqy"]
+[ext_resource type="Texture2D" uid="uid://u73gd20e8y5o" path="res://sprites/Unexpected death.png" id="2_lc8lp"]
+[ext_resource type="Texture2D" uid="uid://cl46il7vaycel" path="res://sprites/Respawn.png" id="2_w7vdd"]
+[ext_resource type="Texture2D" uid="uid://uuy80ggv3qr0" path="res://sprites/respawn:pressed.png" id="3_lc8lp"]
+[ext_resource type="Texture2D" uid="uid://cn40xg2dywr52" path="res://sprites/Drowned respawn screen.png" id="3_ulxu6"]
+
+[node name="respawn_unexpected" type="Node2D"]
+script = ExtResource("1_mp1pe")
+
+[node name="UnepectedDeath" type="Sprite2D" parent="."]
+position = Vector2(564, 402)
+scale = Vector2(0.799887, 0.799887)
+texture = ExtResource("2_ixvqy")
+
+[node name="DrownedRespawnScreen2" type="Sprite2D" parent="UnepectedDeath"]
+position = Vector2(-1182.67, 150.021)
+scale = Vector2(0.356833, 1)
+texture = ExtResource("3_ulxu6")
+
+[node name="DrownedRespawnScreen3" type="Sprite2D" parent="UnepectedDeath"]
+position = Vector2(820.116, -163.773)
+scale = Vector2(0.12733, 1)
+texture = ExtResource("3_ulxu6")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 477.0
+offset_top = 388.0
+offset_right = 923.0
+offset_bottom = 527.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_w7vdd")
+texture_pressed = ExtResource("3_lc8lp")
+texture_hover = ExtResource("3_lc8lp")
+stretch_mode = 0
+
+[node name="UnexpectedDeath" type="Sprite2D" parent="."]
+position = Vector2(583, 91)
+texture = ExtResource("2_lc8lp")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

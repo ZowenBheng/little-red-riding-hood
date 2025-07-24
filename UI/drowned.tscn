@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnt0od43w2jmp"]
+
+[ext_resource type="Script" uid="uid://el0agr0xyqpc" path="res://scripts/drowned.gd" id="1_waipl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8d4g"]
+
+[node name="Drowned" type="Area2D"]
+script = ExtResource("1_waipl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_i8d4g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

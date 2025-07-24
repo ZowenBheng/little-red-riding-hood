@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cksn54i1se1us"]
+[gd_scene load_steps=6 format=3 uid="uid://cksn54i1se1us"]
 
 [ext_resource type="Texture2D" uid="uid://b7d1q0pmtf6dg" path="res://sprites/Ball of Light.png" id="1_vbifo"]
+[ext_resource type="Script" uid="uid://uiw4nf43dgp5" path="res://scripts/Light.gd" id="2_bvun8"]
 
-[sub_resource type="Gradient" id="Gradient_2r4kx"]
+[sub_resource type="Gradient" id="Gradient_bvun8"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yn7y1"]
-gradient = SubResource("Gradient_2r4kx")
+gradient = SubResource("Gradient_bvun8")
 width = 300
 height = 300
 fill = 1
@@ -14,13 +15,24 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 metadata/_snap_enabled = true
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vbifo"]
+radius = 265.047
+
 [node name="The Light (Boss)" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="The Lght" type="Sprite2D" parent="."]
 texture = ExtResource("1_vbifo")
 
-[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+[node name="PointLight2D" type="PointLight2D" parent="The Lght"]
 position = Vector2(0.499996, 9.53674e-07)
 scale = Vector2(1.04667, 1)
 energy = 9.99
 texture = SubResource("GradientTexture2D_yn7y1")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_bvun8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vbifo")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

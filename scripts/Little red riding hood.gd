@@ -1,7 +1,7 @@
 extends CharacterBody2D
 #await get_tree().create_timer(3.0).timeout  (use for later)
 
-@onready var AS  = $AnimatedSprite2D
+@onready var AS = $AnimatedSprite2D
 @onready var dashEffectTimer = $dashEffectTimer
 
 const SPEED = 200 
@@ -14,11 +14,16 @@ var is_wall_sliding = false
 var friction = 75
 
 
-
 func _physics_process(delta : float):
 
+	if Input.is_action_pressed("Cheats"):
+		
+		position = Vector2(4420,2516)
+	
 	var direction: = Input.get_axis("move_left", "move_right")
+	
 	if direction:
+		
 		if dashing:
 			velocity.x = direction * Dash_speed
 		else:
@@ -37,8 +42,7 @@ func _physics_process(delta : float):
 		dash_cooldown = false 
 		$dash_timer.start()
 		$dash_cooldown.start()
-		$dashEffectTimer.start()
-		
+		$dashEffectTimer.start()	
 		
 	if (is_on_wall()):
 		is_wall_sliding = true 
@@ -50,6 +54,7 @@ func _physics_process(delta : float):
 	
 	move_and_slide()
 	
+
 func handle_animation(dir):
 	
 	handle_sprite_flip(dir)
@@ -72,6 +77,7 @@ func handle_sprite_flip(dir):
 		AS.flip_h = false
 	elif dir == - 1:
 		AS.flip_h = true
+		
 
 func create_dash_effect():
 	
@@ -87,15 +93,18 @@ func create_dash_effect():
 	await get_tree().create_timer(animationTime).timeout
 	playerCopyNode.queue_free()
 	
+
 func _on_dash_effect_timer_timeout():
 	
 	create_dash_effect() 
 	$dashEffectTimer.stop()
 
+
 func _on_dash_timer_timeout():
 	
 	dashing = false 
 	
+
 func _on_dash_cooldown_timeout():
 	
 	dash_cooldown = true

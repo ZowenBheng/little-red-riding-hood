@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://b835tv60op70c"]
+
+[ext_resource type="Script" uid="uid://crrogvnimitku" path="res://scripts/respawn_drown.gd" id="1_oudkk"]
+[ext_resource type="Texture2D" uid="uid://cl46il7vaycel" path="res://sprites/Respawn.png" id="2_hcyd8"]
+[ext_resource type="Texture2D" uid="uid://cn40xg2dywr52" path="res://sprites/Drowned respawn screen.png" id="2_mceju"]
+[ext_resource type="Texture2D" uid="uid://uuy80ggv3qr0" path="res://sprites/respawn:pressed.png" id="3_8mr0s"]
+[ext_resource type="Texture2D" uid="uid://12jo135yg2q3" path="res://sprites/You drowned.png" id="5_mceju"]
+
+[node name="Respawn_drown" type="Node2D"]
+script = ExtResource("1_oudkk")
+
+[node name="DrownedRespawnScreen" type="Sprite2D" parent="."]
+position = Vector2(588, 268)
+scale = Vector2(0.886384, 0.868225)
+texture = ExtResource("2_mceju")
+
+[node name="DrownedRespawnScreen2" type="Sprite2D" parent="DrownedRespawnScreen"]
+position = Vector2(-1089.98, 5.75888)
+scale = Vector2(0.356833, 1)
+texture = ExtResource("2_mceju")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 468.0
+offset_top = 387.0
+offset_right = 914.0
+offset_bottom = 526.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_hcyd8")
+texture_pressed = ExtResource("3_8mr0s")
+texture_hover = ExtResource("3_8mr0s")
+stretch_mode = 0
+
+[node name="YouDrowned" type="Sprite2D" parent="."]
+position = Vector2(579, 104)
+scale = Vector2(0.886384, 0.868225)
+texture = ExtResource("5_mceju")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

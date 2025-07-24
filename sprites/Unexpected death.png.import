@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rgtbviioydfp"
-path="res://.godot/imported/Respawn (pressed.png-57a261d92d89138d3d1916c4ffa52496.ctex"
+uid="uid://u73gd20e8y5o"
+path="res://.godot/imported/Unexpected death.png-3e6e33fc1f088b1367b292171be2c18f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Respawn (pressed.png"
-dest_files=["res://.godot/imported/Respawn (pressed.png-57a261d92d89138d3d1916c4ffa52496.ctex"]
+source_file="res://sprites/Unexpected death.png"
+dest_files=["res://.godot/imported/Unexpected death.png-3e6e33fc1f088b1367b292171be2c18f.ctex"]
 
 [params]
 
