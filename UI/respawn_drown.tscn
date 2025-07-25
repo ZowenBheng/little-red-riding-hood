@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b835tv60op70c"]
+[gd_scene load_steps=7 format=3 uid="uid://b835tv60op70c"]
 
 [ext_resource type="Script" uid="uid://crrogvnimitku" path="res://scripts/respawn_drown.gd" id="1_oudkk"]
 [ext_resource type="Texture2D" uid="uid://cl46il7vaycel" path="res://sprites/Respawn.png" id="2_hcyd8"]
 [ext_resource type="Texture2D" uid="uid://cn40xg2dywr52" path="res://sprites/Drowned respawn screen.png" id="2_mceju"]
 [ext_resource type="Texture2D" uid="uid://uuy80ggv3qr0" path="res://sprites/respawn:pressed.png" id="3_8mr0s"]
 [ext_resource type="Texture2D" uid="uid://12jo135yg2q3" path="res://sprites/You drowned.png" id="5_mceju"]
+[ext_resource type="Texture2D" uid="uid://bumeaupgey4nh" path="res://sprites/try breathing.png" id="6_s8jgo"]
 
 [node name="Respawn_drown" type="Node2D"]
 script = ExtResource("1_oudkk")
@@ -34,5 +35,10 @@ stretch_mode = 0
 position = Vector2(579, 104)
 scale = Vector2(0.886384, 0.868225)
 texture = ExtResource("5_mceju")
+
+[node name="TryBreathing" type="Sprite2D" parent="."]
+position = Vector2(576, 192)
+scale = Vector2(0.441748, 0.441748)
+texture = ExtResource("6_s8jgo")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

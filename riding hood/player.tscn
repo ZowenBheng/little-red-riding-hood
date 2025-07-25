@@ -632,7 +632,6 @@ sprite_frames = SubResource("SpriteFrames_sh265")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.497848
-flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)

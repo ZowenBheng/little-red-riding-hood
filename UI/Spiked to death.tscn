@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b02qn6otuqub8"]
+
+[ext_resource type="Script" uid="uid://ciau10bvmflrd" path="res://scripts/spiked_to_death.gd" id="1_6rcd0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21867"]
+
+[node name="Spiked to death" type="Area2D"]
+script = ExtResource("1_6rcd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_21867")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

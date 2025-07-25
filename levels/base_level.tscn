@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://doqko73oqydl0"]
+[gd_scene load_steps=31 format=4 uid="uid://doqko73oqydl0"]
 
 [ext_resource type="PackedScene" uid="uid://dcyog5r207f45" path="res://riding hood/player.tscn" id="2_ew5uy"]
 [ext_resource type="Texture2D" uid="uid://1ap17vbqnkot" path="res://sprites/hanging roots.png" id="2_satuh"]
@@ -10,10 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://bqskjmtjprnou" path="res://sprites/Cave wall.png" id="5_dx6c5"]
 [ext_resource type="Texture2D" uid="uid://djkf38y3tf1h" path="res://sprites/grass.png" id="5_p5284"]
 [ext_resource type="PackedScene" uid="uid://b3074eyac2vri" path="res://enemys/Spiky boi.tscn" id="6_46036"]
+[ext_resource type="PackedScene" uid="uid://b02qn6otuqub8" path="res://UI/Spiked to death.tscn" id="6_jldy4"]
 [ext_resource type="Texture2D" uid="uid://c1faji332bojb" path="res://sprites/Water block.png" id="7_0rg8l"]
 [ext_resource type="Texture2D" uid="uid://cvyqy0ykhdfcm" path="res://sprites/Cave terrian slopes.png" id="9_5mwf5"]
 [ext_resource type="PackedScene" uid="uid://bnt0od43w2jmp" path="res://UI/drowned.tscn" id="13_406qh"]
-[ext_resource type="Script" uid="uid://cjv7j487yrpby" path="res://levels/directional_light_2d.gd" id="13_upde5"]
+[ext_resource type="Script" uid="uid://cjv7j487yrpby" path="res://scripts/directional_light_2d.gd" id="13_upde5"]
 
 [sub_resource type="Gradient" id="Gradient_dx6c5"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -420,6 +421,52 @@ scale = Vector2(84.8585, 1.58581)
 [node name="Unexpected death2" parent="Respawns/Unexpected death" instance=ExtResource("5_406qh")]
 position = Vector2(5184, 3790)
 scale = Vector2(84.8585, 1.58581)
+
+[node name="Spiked to death" type="Node2D" parent="Respawns"]
+
+[node name="Spiked to death" parent="Respawns/Spiked to death" instance=ExtResource("6_jldy4")]
+position = Vector2(4616, 2848)
+scale = Vector2(0.508181, 1.7312)
+
+[node name="Spiked to death2" parent="Respawns/Spiked to death" instance=ExtResource("6_jldy4")]
+position = Vector2(4649, 2825)
+scale = Vector2(0.256841, 2.99734)
+
+[node name="Spiked to death3" parent="Respawns/Spiked to death" instance=ExtResource("6_jldy4")]
+position = Vector2(4678, 2836)
+scale = Vector2(0.256841, 2.99734)
+
+[node name="Spiked to death4" parent="Respawns/Spiked to death" instance=ExtResource("6_jldy4")]
+position = Vector2(4709, 2977)
+scale = Vector2(0.256841, 2.99734)
+
+[node name="Spiked to death5" parent="Respawns/Spiked to death" instance=ExtResource("6_jldy4")]
+position = Vector2(4702, 2984)
+scale = Vector2(0.256841, 2.99734)
+
+[node name="Spiked to death6" parent="Respawns/Spiked to death" instance=ExtResource("6_jldy4")]
+position = Vector2(4869, 3010)
+scale = Vector2(0.256841, 2.99734)
+
+[node name="Spiked to death7" parent="Respawns/Spiked to death" instance=ExtResource("6_jldy4")]
+position = Vector2(4863, 3016)
+scale = Vector2(0.256841, 2.99734)
+
+[node name="Spiked to death8" parent="Respawns/Spiked to death" instance=ExtResource("6_jldy4")]
+position = Vector2(5127, 2998)
+scale = Vector2(0.256841, 2.99734)
+
+[node name="Spiked to death9" parent="Respawns/Spiked to death" instance=ExtResource("6_jldy4")]
+position = Vector2(5122, 3014)
+scale = Vector2(0.256841, 2.99734)
+
+[node name="Spiked to death10" parent="Respawns/Spiked to death" instance=ExtResource("6_jldy4")]
+position = Vector2(5151, 3015)
+scale = Vector2(0.256841, 2.99734)
+
+[node name="Spiked to death11" parent="Respawns/Spiked to death" instance=ExtResource("6_jldy4")]
+position = Vector2(5157, 3009)
+scale = Vector2(0.256841, 2.99734)
 
 [node name="Natural Decor" type="Node2D" parent="."]
 

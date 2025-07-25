@@ -11,8 +11,8 @@
 script = ExtResource("1_mp1pe")
 
 [node name="UnepectedDeath" type="Sprite2D" parent="."]
-position = Vector2(564, 402)
-scale = Vector2(0.799887, 0.799887)
+position = Vector2(564, 378.625)
+scale = Vector2(0.799887, 0.746882)
 texture = ExtResource("2_ixvqy")
 
 [node name="DrownedRespawnScreen2" type="Sprite2D" parent="UnepectedDeath"]
