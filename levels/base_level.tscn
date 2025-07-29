@@ -1,15 +1,16 @@
-[gd_scene load_steps=40 format=4 uid="uid://doqko73oqydl0"]
+[gd_scene load_steps=44 format=4 uid="uid://doqko73oqydl0"]
 
+[ext_resource type="Script" uid="uid://c1mnb3vttan7f" path="res://levels/base_level.gd" id="1_lxejw"]
 [ext_resource type="PackedScene" uid="uid://dcyog5r207f45" path="res://riding hood/player.tscn" id="2_ew5uy"]
 [ext_resource type="Texture2D" uid="uid://1ap17vbqnkot" path="res://sprites/hanging roots.png" id="2_satuh"]
 [ext_resource type="Texture2D" uid="uid://bl6hmnfsdwanf" path="res://sprites/underslopes.png" id="3_p5284"]
+[ext_resource type="PackedScene" uid="uid://b3qn06vhvxsbr" path="res://UI/spiky_boi.tscn" id="3_u35x1"]
 [ext_resource type="Texture2D" uid="uid://duhutfbdmppwr" path="res://sprites/Cave terrain.png" id="4_6w4ab"]
 [ext_resource type="Texture2D" uid="uid://7uqxtwdywdd7" path="res://sprites/terrain.png" id="4_p5284"]
 [ext_resource type="Texture2D" uid="uid://bfsxrn5cc8x0u" path="res://sprites/Lamp post.png" id="5_5mwf5"]
 [ext_resource type="PackedScene" uid="uid://dj6vwtwy5b1ew" path="res://UI/unexpected_death.tscn" id="5_406qh"]
 [ext_resource type="Texture2D" uid="uid://bqskjmtjprnou" path="res://sprites/Cave wall.png" id="5_dx6c5"]
 [ext_resource type="Texture2D" uid="uid://djkf38y3tf1h" path="res://sprites/grass.png" id="5_p5284"]
-[ext_resource type="PackedScene" uid="uid://b3074eyac2vri" path="res://enemys/Spiky boi.tscn" id="6_46036"]
 [ext_resource type="PackedScene" uid="uid://b02qn6otuqub8" path="res://UI/Spiked to death.tscn" id="6_jldy4"]
 [ext_resource type="Texture2D" uid="uid://c1faji332bojb" path="res://sprites/Water block.png" id="7_0rg8l"]
 [ext_resource type="Texture2D" uid="uid://cvyqy0ykhdfcm" path="res://sprites/Cave terrian slopes.png" id="9_5mwf5"]
@@ -17,6 +18,9 @@
 [ext_resource type="Script" uid="uid://cjv7j487yrpby" path="res://scripts/directional_light_2d.gd" id="13_upde5"]
 [ext_resource type="Script" uid="uid://dfudxbqd5xxye" path="res://levels/day.gd" id="15_qeex7"]
 [ext_resource type="Script" uid="uid://bav8swxakwc5e" path="res://levels/reenter_cave.gd" id="17_hd0gu"]
+[ext_resource type="Script" uid="uid://cmhhvvf0xmwf5" path="res://levels/player_light_shut_off.gd" id="18_e78uj"]
+[ext_resource type="Script" uid="uid://15unufmrxy8m" path="res://levels/player_light_turn_on.gd" id="19_u35x1"]
+[ext_resource type="PackedScene" uid="uid://cc8xr7so8fkxo" path="res://UI/heartscontainer.tscn" id="20_ubdnn"]
 
 [sub_resource type="Gradient" id="Gradient_dx6c5"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -233,9 +237,10 @@ size = Vector2(355, 21.875)
 size = Vector2(343, 20.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u35x1"]
-size = Vector2(1332.5, 94)
+size = Vector2(763, 94)
 
 [node name="base level" type="Node2D"]
+script = ExtResource("1_lxejw")
 
 [node name="Decor" type="Node2D" parent="."]
 
@@ -363,38 +368,8 @@ texture = SubResource("GradientTexture2D_hd0gu")
 [node name="enemies" type="Node2D" parent="."]
 position = Vector2(-1.52588e-05, -6.10352e-05)
 
-[node name="Spiky boi" parent="enemies" instance=ExtResource("6_46036")]
+[node name="Spiky boi" parent="enemies" instance=ExtResource("3_u35x1")]
 position = Vector2(1477, 578)
-
-[node name="Spiky boi3" parent="enemies" instance=ExtResource("6_46036")]
-position = Vector2(1991, 585)
-
-[node name="Spiky boi2" parent="enemies" instance=ExtResource("6_46036")]
-position = Vector2(370, 584)
-
-[node name="Spiky boi4" parent="enemies" instance=ExtResource("6_46036")]
-position = Vector2(1614, 2664)
-
-[node name="Spiky boi9" parent="enemies" instance=ExtResource("6_46036")]
-position = Vector2(1433, 2667)
-
-[node name="Spiky boi10" parent="enemies" instance=ExtResource("6_46036")]
-position = Vector2(1168, 2664)
-
-[node name="Spiky boi11" parent="enemies" instance=ExtResource("6_46036")]
-position = Vector2(984, 2667)
-
-[node name="Spiky boi5" parent="enemies" instance=ExtResource("6_46036")]
-position = Vector2(2433, 575)
-
-[node name="Spiky boi6" parent="enemies" instance=ExtResource("6_46036")]
-position = Vector2(3006, 403)
-
-[node name="Spiky boi7" parent="enemies" instance=ExtResource("6_46036")]
-position = Vector2(3637, 742)
-
-[node name="Spiky boi8" parent="enemies" instance=ExtResource("6_46036")]
-position = Vector2(3995, 742)
 
 [node name="Respawns" type="Node2D" parent="."]
 
@@ -774,7 +749,7 @@ script = ExtResource("13_upde5")
 script = ExtResource("15_qeex7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lighting/DirectionalLight2D/Day"]
-position = Vector2(7387, 1412)
+position = Vector2(7387, 1423)
 shape = SubResource("RectangleShape2D_hd0gu")
 
 [node name="reenter cave" type="Area2D" parent="Lighting/DirectionalLight2D"]
@@ -785,10 +760,30 @@ position = Vector2(7388.5, 1439)
 shape = SubResource("RectangleShape2D_e78uj")
 
 [node name="player light shut off" type="Area2D" parent="Lighting/DirectionalLight2D"]
+script = ExtResource("18_e78uj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lighting/DirectionalLight2D/player light shut off"]
-position = Vector2(6860.25, 1612)
+position = Vector2(7080, 1490)
 shape = SubResource("RectangleShape2D_u35x1")
+
+[node name="player light turn on" type="Area2D" parent="Lighting/DirectionalLight2D"]
+position = Vector2(0, -33)
+script = ExtResource("19_u35x1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lighting/DirectionalLight2D/player light turn on"]
+position = Vector2(7149.5, 1763)
+shape = SubResource("RectangleShape2D_u35x1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="heartscontainer" parent="CanvasLayer" instance=ExtResource("20_ubdnn")]
+offset_left = 36.0
+offset_top = 29.0
+offset_right = 36.0
+offset_bottom = 29.0
+scale = Vector2(5, 5)
 
 [connection signal="body_entered" from="Lighting/DirectionalLight2D/Day" to="Lighting/DirectionalLight2D/Day" method="_on_body_entered"]
 [connection signal="body_entered" from="Lighting/DirectionalLight2D/reenter cave" to="Lighting/DirectionalLight2D/reenter cave" method="_on_body_entered"]
+[connection signal="body_entered" from="Lighting/DirectionalLight2D/player light shut off" to="Lighting/DirectionalLight2D/player light shut off" method="_on_body_entered"]
+[connection signal="body_entered" from="Lighting/DirectionalLight2D/player light turn on" to="Lighting/DirectionalLight2D/player light turn on" method="_on_body_entered"]

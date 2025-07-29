@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://dcyog5r207f45"]
+[gd_scene load_steps=92 format=3 uid="uid://dcyog5r207f45"]
 
 [ext_resource type="Texture2D" uid="uid://re5fgxqsaswj" path="res://sprites/attack.png" id="1_2r4kx"]
 [ext_resource type="Script" uid="uid://bfkhsj5e0aomi" path="res://scripts/Little red riding hood.gd" id="1_sm4es"]
@@ -612,6 +612,9 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2r4kx"]
 radius = 6.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sm4es"]
+radius = 6.0
+
 [node name="riding hood" type="CharacterBody2D"]
 script = ExtResource("1_sm4es")
 
@@ -637,6 +640,15 @@ wait_time = 0.2
 [node name="dash_cooldown" type="Timer" parent="."]
 wait_time = 1.5
 
+[node name="hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+visibility_layer = 3
+position = Vector2(-1, 3)
+shape = SubResource("CapsuleShape2D_sm4es")
+debug_color = Color(0.665005, 0.412652, 0.785086, 0.42)
+
 [connection signal="timeout" from="dashEffectTimer" to="." method="_on_dash_effect_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

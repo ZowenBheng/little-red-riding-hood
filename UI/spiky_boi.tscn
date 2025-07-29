@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3qn06vhvxsbr"]
+
+[ext_resource type="Script" uid="uid://bxfduqduso274" path="res://scripts/Spiky boi movement.gd" id="1_i3ixf"]
+[ext_resource type="Texture2D" uid="uid://cuk4mx335l0oj" path="res://sprites/Red riding hood enemy.png" id="2_aabqi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc474"]
+atlas = ExtResource("2_aabqi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w06sa"]
+atlas = ExtResource("2_aabqi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d1gh"]
+atlas = ExtResource("2_aabqi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhgrv"]
+atlas = ExtResource("2_aabqi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1tfjx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc474")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w06sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d1gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhgrv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_scyyw"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3ixf"]
+radius = 6.99908
+height = 19.9974
+
+[node name="Spiky boi" type="CharacterBody2D"]
+visibility_layer = 3
+script = ExtResource("1_i3ixf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1tfjx")
+frame = 2
+frame_progress = 0.647419
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_scyyw")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, 0)
+target_position = Vector2(0, 13)
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+rotation = 1.55455
+shape = SubResource("CapsuleShape2D_i3ixf")
+debug_color = Color(0.744582, 0.246073, 0.960539, 0.42)

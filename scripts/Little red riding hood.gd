@@ -3,6 +3,10 @@ extends CharacterBody2D
 
 @onready var AS = $AnimatedSprite2D
 @onready var dashEffectTimer = $dashEffectTimer
+@export var MaxHealth = 3
+@onready var currentHealth: int = MaxHealth
+
+signal healthChanged
 
 const SPEED = 200 
 const JUMP = -400
@@ -108,3 +112,12 @@ func _on_dash_timer_timeout():
 func _on_dash_cooldown_timeout():
 	
 	dash_cooldown = true
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.name == "hitbox":
+		currentHealth -= 1
+		if currentHealth == 0:
+			get_tree().change_scene_to_file("res://UI/respawn_unexpected.tscn")
+			
+		healthChanged.emit(currentHealth)
