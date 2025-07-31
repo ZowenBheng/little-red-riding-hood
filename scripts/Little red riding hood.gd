@@ -115,9 +115,19 @@ func _on_dash_cooldown_timeout():
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
+	
 	if area.name == "hitbox":
 		currentHealth -= 1
+		
 		if currentHealth == 0:
-			get_tree().change_scene_to_file("res://UI/respawn_unexpected.tscn")
+			get_tree().change_scene_to_file("res://UI/spikey_boy_death.tscn")
+			
+		healthChanged.emit(currentHealth)
+		
+	elif area.name == "Spiked to death":
+		currentHealth -= 1
+		
+		if currentHealth == 0:
+			get_tree().change_scene_to_file("res://UI/respawn_spiked_to_death.tscn")
 			
 		healthChanged.emit(currentHealth)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cbj3eolxwowfl"]
 
 [ext_resource type="Script" uid="uid://dn5u1y5ttbtd1" path="res://scripts/respawn_spiked_to_death.gd" id="1_p1168"]
-[ext_resource type="Texture2D" uid="uid://bmubtuivw0hko" path="res://sprites/Screenshot 2025-07-25 at 12.04.43 PM.png" id="2_6vttr"]
+[ext_resource type="Texture2D" uid="uid://bmubtuivw0hko" path="res://sprites/spiky.png" id="2_6vttr"]
 [ext_resource type="Texture2D" uid="uid://cn40xg2dywr52" path="res://sprites/Drowned respawn screen.png" id="3_aavpq"]
 [ext_resource type="Texture2D" uid="uid://cl46il7vaycel" path="res://sprites/Respawn.png" id="3_bjhxs"]
 [ext_resource type="Texture2D" uid="uid://uuy80ggv3qr0" path="res://sprites/respawn:pressed.png" id="4_bv8ir"]

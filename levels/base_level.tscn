@@ -237,7 +237,7 @@ size = Vector2(355, 21.875)
 size = Vector2(343, 20.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u35x1"]
-size = Vector2(763, 94)
+size = Vector2(763, 16)
 
 [node name="base level" type="Node2D"]
 script = ExtResource("1_lxejw")
@@ -370,6 +370,36 @@ position = Vector2(-1.52588e-05, -6.10352e-05)
 
 [node name="Spiky boi" parent="enemies" instance=ExtResource("3_u35x1")]
 position = Vector2(1477, 578)
+
+[node name="Spiky boi2" parent="enemies" instance=ExtResource("3_u35x1")]
+position = Vector2(381, 582)
+
+[node name="Spiky boi3" parent="enemies" instance=ExtResource("3_u35x1")]
+position = Vector2(3027, 391)
+
+[node name="Spiky boi5" parent="enemies" instance=ExtResource("3_u35x1")]
+position = Vector2(1610, 2625)
+
+[node name="Spiky boi6" parent="enemies" instance=ExtResource("3_u35x1")]
+position = Vector2(1426, 2639)
+
+[node name="Spiky boi7" parent="enemies" instance=ExtResource("3_u35x1")]
+position = Vector2(1178, 2638)
+
+[node name="Spiky boi8" parent="enemies" instance=ExtResource("3_u35x1")]
+position = Vector2(967, 2634)
+
+[node name="Spiky boi9" parent="enemies" instance=ExtResource("3_u35x1")]
+position = Vector2(646, 2628)
+
+[node name="Spiky boi10" parent="enemies" instance=ExtResource("3_u35x1")]
+position = Vector2(3676, 719)
+
+[node name="Spiky boi11" parent="enemies" instance=ExtResource("3_u35x1")]
+position = Vector2(4051, 717)
+
+[node name="Spiky boi4" parent="enemies" instance=ExtResource("3_u35x1")]
+position = Vector2(2053, 564)
 
 [node name="Respawns" type="Node2D" parent="."]
 
@@ -756,14 +786,14 @@ shape = SubResource("RectangleShape2D_hd0gu")
 script = ExtResource("17_hd0gu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lighting/DirectionalLight2D/reenter cave"]
-position = Vector2(7388.5, 1439)
+position = Vector2(7389, 1427)
 shape = SubResource("RectangleShape2D_e78uj")
 
 [node name="player light shut off" type="Area2D" parent="Lighting/DirectionalLight2D"]
 script = ExtResource("18_e78uj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lighting/DirectionalLight2D/player light shut off"]
-position = Vector2(7080, 1490)
+position = Vector2(7181, 1438)
 shape = SubResource("RectangleShape2D_u35x1")
 
 [node name="player light turn on" type="Area2D" parent="Lighting/DirectionalLight2D"]
@@ -771,16 +801,21 @@ position = Vector2(0, -33)
 script = ExtResource("19_u35x1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lighting/DirectionalLight2D/player light turn on"]
-position = Vector2(7149.5, 1763)
+position = Vector2(7158, 1676)
 shape = SubResource("RectangleShape2D_u35x1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="heartscontainer" parent="CanvasLayer" instance=ExtResource("20_ubdnn")]
-offset_left = 36.0
-offset_top = 29.0
-offset_right = 36.0
-offset_bottom = 29.0
+anchors_preset = -1
+anchor_left = -0.108
+anchor_top = 0.785
+anchor_right = -0.108
+anchor_bottom = 0.785
+offset_left = 668.416
+offset_top = -244.68
+offset_right = 668.416
+offset_bottom = -244.68
 scale = Vector2(5, 5)
 
 [connection signal="body_entered" from="Lighting/DirectionalLight2D/Day" to="Lighting/DirectionalLight2D/Day" method="_on_body_entered"]
