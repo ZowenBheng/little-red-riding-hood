@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bu5tewhikhfrs"]
 
-[ext_resource type="Script" uid="uid://dmyyyut6m0xbi" path="res://UI/spikey_boy_death.gd" id="1_agg2y"]
+[ext_resource type="Script" uid="uid://dmyyyut6m0xbi" path="res://scripts/spikey_boy_death.gd" id="1_agg2y"]
 [ext_resource type="Texture2D" uid="uid://bvxls3sa3xama" path="res://sprites/spikey boi run.png" id="1_wijbc"]
 [ext_resource type="Texture2D" uid="uid://cl46il7vaycel" path="res://sprites/Respawn.png" id="3_trkbn"]
 [ext_resource type="Texture2D" uid="uid://cn40xg2dywr52" path="res://sprites/Drowned respawn screen.png" id="3_wauh2"]
