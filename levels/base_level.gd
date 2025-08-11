@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var HeartContainer = $CanvasLayer/heartscontainer
+@onready var HeartContainer = $Heart/heartscontainer
 @onready var player = $player
 
 func _ready():
