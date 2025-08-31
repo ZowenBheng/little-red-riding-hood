@@ -5,6 +5,10 @@ extends CharacterBody2D
 @onready var dashEffectTimer = $dashEffectTimer
 @export var MaxHealth = 3
 @onready var currentHealth: int = MaxHealth
+@onready var hurt = $Hurt
+@onready var hurtTimer = $hurtTimer
+
+@export var knockbackPower: int = 500
 
 signal healthChanged
 
@@ -18,11 +22,19 @@ var is_wall_sliding = false
 var friction = 75
 
 
+func _ready():
+	hurt.play("RESET")
+
 func _physics_process(delta : float):
 
 	if Input.is_action_pressed("Cheats"):
 		
 		position = Vector2(4420,2516)
+	
+	if Input.is_action_just_pressed("Cheats - jungle"):
+		
+		position = Vector2(7369,1258)
+		
 	
 	var direction: = Input.get_axis("move_left", "move_right")
 	
@@ -113,21 +125,27 @@ func _on_dash_cooldown_timeout():
 	
 	dash_cooldown = true
 
-
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	
+	if area.name == "hitbox" or area.name == "spike":
+		currentHealth -= 1
+		hurt.play("Hurtblink")
+		hurtTimer.start()
+		await hurtTimer.timeout
+		hurt.play("RESET")
+		
+		healthChanged.emit(currentHealth)
+	
+		if currentHealth == 0:
+			get_tree().change_scene_to_file("res://UI/respawn.tscn")
+			
 	if area.name == "hitbox":
-		currentHealth -= 1
+		knockback(area.get_parent().velocity)
 		
-		if currentHealth == 0:
-			get_tree().change_scene_to_file("res://UI/spikey_boy_death.tscn")
-			
 		healthChanged.emit(currentHealth)
 		
-	elif area.name == "Spiked to death":
-		currentHealth -= 1
+func knockback(enemyVelocity : Vector2):
+	var knockbackdirection = (enemyVelocity - velocity).normalized() * knockbackPower
+	velocity = knockbackdirection
+	move_and_slide()
 		
-		if currentHealth == 0:
-			get_tree().change_scene_to_file("res://UI/respawn_spiked_to_death.tscn")
-			
-		healthChanged.emit(currentHealth)

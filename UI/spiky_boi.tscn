@@ -49,6 +49,7 @@ height = 19.9974
 
 [node name="Spiky boi" type="CharacterBody2D"]
 visibility_layer = 3
+collision_layer = 0
 script = ExtResource("1_i3ixf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

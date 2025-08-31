@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://do1p8o873bhi3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubdnn"]
+size = Vector2(5.44153, 0.676792)
+
+[node name="spike" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4613.51, 2850.74)
+rotation = 1.55455
+scale = Vector2(5.6099, 10.3906)
+shape = SubResource("RectangleShape2D_ubdnn")
+debug_color = Color(0.744582, 0.246073, 0.960539, 0.42)
