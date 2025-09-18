@@ -87,13 +87,15 @@ func handle_animation(dir):
 			AS.play("jump")	
 	
 		
+		
+		
 func handle_sprite_flip(dir):
 	
 	if dir == 1:
 		AS.flip_h = false
 	elif dir == - 1:
 		AS.flip_h = true
-		
+	
 
 func create_dash_effect():
 	
@@ -127,7 +129,7 @@ func _on_dash_cooldown_timeout():
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	
-	if area.name == "hitbox" or area.name == "spike":
+	if area.name == "spike" or area.name == "hitbox":
 		currentHealth -= 1
 		hurt.play("Hurtblink")
 		hurtTimer.start()
@@ -135,14 +137,14 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		hurt.play("RESET")
 		
 		healthChanged.emit(currentHealth)
-	
+		
 		if currentHealth == 0:
 			get_tree().change_scene_to_file("res://UI/respawn.tscn")
-			
+	
 	if area.name == "hitbox":
+	
 		knockback(area.get_parent().velocity)
 		
-		healthChanged.emit(currentHealth)
 		
 func knockback(enemyVelocity : Vector2):
 	var knockbackdirection = (enemyVelocity - velocity).normalized() * knockbackPower
