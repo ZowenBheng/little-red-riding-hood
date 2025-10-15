@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b01wj8edi8uka"]
+
+[ext_resource type="Texture2D" uid="uid://bvxls3sa3xama" path="res://sprites/spikey boi run.png" id="1_hkqwi"]
+
+[node name="wait scene" type="Node2D"]
+
+[node name="SpikeyBoiRun" type="Sprite2D" parent="."]
+position = Vector2(2816, -542)
+scale = Vector2(1.76528, 1.27412)
+texture = ExtResource("1_hkqwi")

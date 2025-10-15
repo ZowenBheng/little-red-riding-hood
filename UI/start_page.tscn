@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://5ejjn5gbd402"]
+
+[ext_resource type="Texture2D" uid="uid://b7rfhndut4iec" path="res://sprites/start.png" id="1_feef3"]
+[ext_resource type="Texture2D" uid="uid://bmpuqtlr2776t" path="res://sprites/start'pressed.png" id="2_lm4e3"]
+[ext_resource type="Script" uid="uid://dnfl2xbk72y0s" path="res://scripts/texture_button (2).gd" id="3_qb564"]
+
+[node name="Start page" type="Node2D"]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 449.0
+offset_top = 344.0
+offset_right = 661.0
+offset_bottom = 409.0
+texture_normal = ExtResource("1_feef3")
+texture_pressed = ExtResource("2_lm4e3")
+texture_hover = ExtResource("2_lm4e3")
+script = ExtResource("3_qb564")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

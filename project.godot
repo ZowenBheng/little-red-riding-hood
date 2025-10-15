@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="little red riding hood"
-run/main_scene="uid://doqko73oqydl0"
+run/main_scene="uid://5ejjn5gbd402"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [display]
